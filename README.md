@@ -90,3 +90,4 @@ Cybersecurity Bootcamp · 4Geeks Academy
 ## 📄 License
 
 This project was completed as part of a structured bootcamp exercise originally created by [@rosinni](https://github.com/rosinni) and contributors at [4Geeks Academy](https://4geeksacademy.com). Content and reports authored by Addraed are shared for educational purposes.
+<!-- endhide -->
