@@ -82,7 +82,7 @@ Network topology designed with **Cisco Packet Tracer**, reflecting the current i
 
 ## 👤 Author
 
-**Addraed**
+**Manuel Rosario Marín Fernández**
 Cybersecurity Bootcamp · 4Geeks Academy
 
 ---
