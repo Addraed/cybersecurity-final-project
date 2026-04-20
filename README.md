@@ -1,135 +1,92 @@
 <!-- hide -->
-# Cybersecurity Final Project
+# 🔐 Cybersecurity Final Project
 
-> By [@rosinni](https://github.com/rosinni) and [other contributors](https://github.com/breatheco-de/cybersecurity-final-project/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.co/)
+> Final project for the Cybersecurity Bootcamp at [4Geeks Academy](https://4geeksacademy.com). A complete hands-on exercise simulating a real-world security incident: forensic analysis, penetration testing, vulnerability remediation, and incident response planning on a compromised Debian server.
 
-[![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
-[![build by developers](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=twitter)](https://twitter.com/4geeksacademy)
+*Esta documentación también está [disponible en español](README.es.md)*
 
-*Estas instrucciones estan [disponibles en español](https://github.com/breatheco-de/cybersecurity-final-project/blob/main/README.es.md)*
+---
 
-### Before you start...
+## 📌 Project Overview
 
-> We need you! These exercises are built and maintained in collaboration with contributors such as yourself. If you find any bugs or misspellings please contribute and/or report them.
-<!-- endhide -->
+This project simulates the role of a cybersecurity analyst tasked with recovering and securing a critical server that has been compromised. The exercise is divided into three phases covering the full incident response lifecycle.
 
-# 🌱 How to Start This Project
+---
 
-For this final project, you will assume the role of a cybersecurity analyst responsible for restoring and protecting a critical server that has been compromised at 4Geeks Academy. You will be provided with a [hacked machine](https://storage.googleapis.com/breathecode/virtualbox/debian-final-project.ova) that simulates a key company server, and your task will be to re-establish its security, fix the exploited vulnerabilities, and ensure its optimal functionality. The exercise is divided into three phases that will test your skills in forensic analysis, vulnerability detection and remediation, and incident response.
+## 🗂️ Deliverables
 
-- **Phase 1 - Hack Correction**  
-In the first phase, you will conduct a forensic analysis of the incident, identify the vulnerabilities exploited by the attacker, and block the exploit to prevent further escalation of the attack.
+| File | Description |
+|------|-------------|
+| `informe_pentesting_MRMF.pdf` | Penetration testing report |
+| `informe_incidente_ciberseguridad_MRMF.pdf` | Security incident report |
+| `plan_recuperacion_MRMF.pdf` | Recovery and continuity plan |
+| `presentacion_análisis_cibersec_MRMF.pdf` | Executive presentation (PDF) |
+| `presentacion_análisis_cibersec_MRMF.pptx` | Executive presentation (PPTX) |
+| `diagrama_red_proyecto_final_mockup.pkt` | Network diagram (Cisco Packet Tracer) |
+| `VM_REMEDIADA.md` | Remediated VM documentation |
 
-- **Phase 2 - Detection and Correction of a New Vulnerability**  
-In the second phase, you will scan the system for an additional vulnerability, different from the one previously exploited. Once detected, you will exploit the vulnerability in a controlled manner to understand its impact, escalate its privileges, fix it, and create a report that explains the entire process.
+---
 
-- **Phase 3 - Incident Response Plan and Certification**  
-The final phase involves designing an incident response plan based on industry best practices, such as the NIST recommendations. As part of this exercise, you will develop an Information Security Management System (ISMS) in accordance with the ISO 27001 standard, which will include measures to prevent data leaks through Data Loss Prevention (DLP) policies.
+## 🔍 Phase 1 – Forensic Analysis & Hack Remediation
 
-## 📝 Instructions
+**Objective:** Identify how the server was compromised, block the exploit, and restore security.
 
-### Phase 1: Recognition and collection of evidence
+- Reviewed system logs (`/var/log/auth.log`) to trace attacker access
+- Identified suspicious processes, unauthorized users, and backdoors
+- Performed rootkit and malware scanning
+- Stopped compromised services and reverted attacker changes
+- Hardened firewall rules, updated packages, and rotated credentials
 
-**Objective:** Conduct a forensic analysis to block the exploit, fix the vulnerability, and prevent the attacker from escalating.
+📄 **Report:** `informe_incidente_ciberseguridad_MRMF.pdf`
 
-1. Identify which services were compromised and how the attacker accessed the server. You can use tools like `grep` to review system logs (for example, `/var/log/auth.log` for SSH connections).
-2. Identify suspicious files, running processes, and any unusual modifications in the system.
-3. Perform a scan of the server to detect rootkits or malware.
-4. Block the exploit and prevent escalation. Temporarily stop compromised services (`systemctl stop service`) if necessary.
-5. Revert changes made by the attacker (remove unauthorized users, eliminate backdoors, close unnecessary ports).
-6. Update and correct security configurations (update packages, change passwords, improve firewall settings if necessary).
-7. Prepare a detailed report that includes the measures taken to mitigate the attack and prevent escalation. Additionally, include recommendations on how to prevent future attacks of a similar nature.
+---
 
+## 🕵️ Phase 2 – Vulnerability Detection & Penetration Testing
 
-### Phase 2: Detect and Fix a Different Vulnerability
+**Objective:** Find and exploit a second vulnerability, document the process, and apply fixes.
 
-**Objective:** Scan, detect, and exploit a vulnerability different from the one previously exploited and create a report that explains the entire process.
+- Full system scan using `Nmap` and related tools
+- Detected and exploited a misconfiguration unrelated to the original hack
+- Documented the exploitation chain and privilege escalation steps
+- Applied remediation: closed ports, restricted access, corrected service configurations
 
-1. Perform a complete scan of the system using tools like `Nmap`.
-2. Detect a vulnerability unrelated to the previous hack, such as a misconfiguration in Apache, unnecessary open ports, or an exposed service, and exploit this detected vulnerability.
-3. Document the exploitation process and the steps taken to compromise the service or escalate privileges.
-4. Apply measures to fix the found vulnerability, such as closing ports, changing security configurations, or restricting access.
-5. Prepare a detailed report that includes the detected vulnerability, the exploitation process, and the measures applied to correct it.
+📄 **Report:** `informe_pentesting_MRMF.pdf`
 
+---
 
-### Phase 3: Incident Response Plan and Certification
+## 📋 Phase 3 – Incident Response Plan & ISO 27001 ISMS
 
-**Objective:** Design an incident response plan based on best practices and develop an Information Security Management System (ISMS) in accordance with the ISO 27001 standard.
+**Objective:** Design a formal incident response plan and an Information Security Management System.
 
-1. Develop a response plan based on the NIST SP 800-61 guidelines, which includes how to identify, contain, eradicate, and recover from future security incidents.
-2. Detail how the organization would respond to an attack similar to the one that occurred and how to prevent recurrence.
-3. Identify and document data protection mechanisms, such as the use of regular backups, encryption of sensitive data, and the implementation of strict access controls.
-4. Implement an ISMS (ISO 27001). Develop an Information Security Management System (ISMS) that complies with ISO 27001 standards, including risk analysis, definition of security policies, and action plans to protect the company’s critical information.
+- Developed response plan following **NIST SP 800-61** guidelines (Identify → Contain → Eradicate → Recover)
+- Defined DLP policies and data protection mechanisms (backups, encryption, access controls)
+- Built an **ISMS aligned with ISO 27001**: risk analysis, security policies, and action plans
 
+📄 **Reports:** `plan_recuperacion_MRMF.pdf` · `presentacion_análisis_cibersec_MRMF.pdf`
 
-## 📦 How to Submit This Project?
+---
 
-- [ ] Create a **network diagram** using tools like Packet Tracer that reflects the current network topology and recommended changes.
-- [ ] Present the **Debian virtual machine** with services correctly configured and issues resolved.
-- [ ] Prepare a **penetration testing report**.
-- [ ] Prepare a **security incident report** detailing the forensic analysis, corrective actions, and preventive measures taken.
-- [ ] Develop a **recovery plan** to ensure the continuity of the company’s critical services in case of an incident.
-- [ ] Create an **executive presentation** for management, explaining what happened, the actions taken, and future recommendations.
+## 🗺️ Network Diagram
 
-## 👨‍💻 For Teachers
+Network topology designed with **Cisco Packet Tracer**, reflecting the current infrastructure and recommended security changes.
 
-Below are the key reviews that the instructor should consider in the student's deliverable:
+📁 `diagrama_red_proyecto_final_mockup.pkt`
 
-### Identification and Documentation of Vulnerabilities
+---
 
-- **Verification of MySQL Configuration:**
-    - Confirm that the student has correctly identified the user with a weak password.
-    - Review if a concrete solution is suggested (use of strong passwords, access restrictions, etc.).
+## 🛠️ Tools & Technologies
 
-- **FTP Server Configuration:**
-    - Validate that the student has analyzed permissions and anonymous access.
-    - Confirm if it is recommended to disable insecure access or strengthen the configuration.
+`Debian Linux` · `Nmap` · `SSH` · `MySQL` · `Apache` · `FTP` · `Packet Tracer` · `NIST SP 800-61` · `ISO 27001`
 
-- **Insecure SSH Access:**
-    - Review if weak authentication methods have been detected.
-    - Confirm if solutions such as disabling root login or using public key authentication are proposed.
+---
 
-- **Unnecessary Open Ports:**
-    - Check if the student has performed a port scan with nmap or similar tools.
-    - Validate that unnecessary services have been identified and proposed to close the corresponding ports.
+## 👤 Author
 
-- **Permissions on wp-config.php:**
-    - Confirm if the current permissions have been reviewed and a correction is proposed (e.g., chmod 600 wp-config.php).
+**Addraed**
+Cybersecurity Bootcamp · 4Geeks Academy
 
-- **Listable Web Directory:**
-    - Review if the configuration on the web server (Apache/Nginx) has been identified.
-    - Check if the student has applied the correct solution (modify .htaccess or Options -Indexes).
+---
 
+## 📄 License
 
-### Configuration and Validation of the Debian Machine
-- Review if the Debian machine has correctly configured services with enhanced security.
-- Check that the proposed solutions have been applied and tests have been conducted to validate their effectiveness.
-
-### Required Reports
-    
-- Pentesting Report: Confirm that it includes details of each vulnerability, tests performed, and solutions applied.
-
-- Security Incident Report: Validate if a forensic analysis of the findings is described and review that corrective and preventive measures implemented are explained.
-
-- Incident Recovery Plan: Check if the plan covers critical services and details recovery procedures.
-
-- Executive Presentation for Management: Evaluate if it is structured clearly and professionally. Verify if it includes a summary of detected issues, implemented solutions, and future recommendations.
-
-
-The instructor must ensure that the deliverable not only documents the findings but also proposes applicable solutions and shows evidence of their implementation. The presentation should be aligned with a professional and management-oriented approach.
-
-
-<!-- hide -->
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
-
-1. [Rosinni Rodríguez (rosinni)](https://github.com/rosinni) contribution: (build-tutorial) ✅, (documentation) 📖
-  
-2. [Alejandro Sanchez (alesanchezr)](https://github.com/alesanchezr),  contribution: (bug reports) 🐛
-
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind are welcome!
-
-This and many other exercises are built by students as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sánchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and  [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning). You can alse deepdive in the world of cybersecurity with our [Cybersecurity Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/cybersecurity)
-<!-- endhide -->
-
+This project was completed as part of a structured bootcamp exercise originally created by [@rosinni](https://github.com/rosinni) and contributors at [4Geeks Academy](https://4geeksacademy.com). Content and reports authored by Addraed are shared for educational purposes.
